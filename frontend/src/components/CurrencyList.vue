@@ -1,12 +1,15 @@
 <template>
-  <div class='wrapper'>
-    <div v-for="(currency, key) in getCurrency" :key="currency.id">
-      <div class='box' :id="key">
-        <p>{{currency.name}}<p>
-        <p>{{currency.charCode}}</p>
-        <p>Nominal = {{currency.nominal}}</p>
-        <p>Current value = {{currency.currentValue}}</p>
-        <p>Previous value = {{currency.previousValue}}</p>
+  <div>
+    <h2>Currency list</h2>
+    <div class='wrapper'>
+      <div v-for="(currency, key) in getCurrencyList" :key="currency.id">
+        <div class='box' :id="key">
+          <p>{{currency.name}}<p>
+          <p>{{currency.charCode}}</p>
+          <p>Nominal = {{currency.nominal}}</p>
+          <p>Current value = {{currency.currentValue}}</p>
+          <p>Previous value = {{currency.previousValue}}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -18,16 +21,13 @@ export default {
   data () {
     return {}
   },
-  computed: mapGetters(['getCurrency']),
+  computed: mapGetters(['getCurrencyList']),
   mounted: function () {
     this.$store.dispatch('fetchCurrency')
   }
 }
 </script>
 <style scoped>
-body {
-  margin: 40px;
-}
 
 .wrapper {
   display: grid;

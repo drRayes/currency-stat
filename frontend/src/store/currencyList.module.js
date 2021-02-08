@@ -1,11 +1,11 @@
 import axios from 'axios'
 const API_URL = '/api'
-export const currency = {
+export const currencyList = {
   state: {
     currency: []
   },
   getters: {
-    getCurrency (state) {
+    getCurrencyList (state) {
       return state.currency
     }
   },

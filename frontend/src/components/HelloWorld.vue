@@ -2,15 +2,18 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-    <CurrencyList/>
+    <Converter/>
+    //<CurrencyList/>
   </div>
 </template>
 
 <script>
 import CurrencyList from '../components/CurrencyList.vue'
+import Converter from '../components/Converter.vue'
+
 export default {
   name: 'HelloWorld',
-  components: {CurrencyList},
+  components: {CurrencyList, Converter},
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'

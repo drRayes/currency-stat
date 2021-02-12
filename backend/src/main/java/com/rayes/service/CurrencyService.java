@@ -9,6 +9,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -66,9 +67,10 @@ public class CurrencyService {
                 }
 
                 currencyList.add(new Currency(
-                        splitByComa[0], Long.valueOf(splitByComa[1]), splitByComa[2], Long.valueOf(splitByComa[3]), splitByComa[4],
-                        BigDecimal.valueOf(Double.valueOf(splitByComa[5])), BigDecimal.valueOf(Double.valueOf(splitByComa[6]))
-                ));
+                        splitByComa[0], Long.valueOf(splitByComa[1]), splitByComa[2], Long.valueOf(splitByComa[3]),
+                        splitByComa[4], BigDecimal.valueOf(Double.valueOf(splitByComa[5])),
+                        BigDecimal.valueOf(Double.valueOf(splitByComa[6])), LocalDate.now())
+                );
 
             }
         } catch (Exception e) {

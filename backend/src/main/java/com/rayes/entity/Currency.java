@@ -1,12 +1,13 @@
 package com.rayes.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 public class Currency {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String stringId;
@@ -16,13 +17,14 @@ public class Currency {
     private String name;
     private BigDecimal currentValue;
     private BigDecimal previousValue;
+    private LocalDate dateOfValue;
 
     public Currency() {
 
     }
 
     public Currency(String stringId, Long numCode, String charCode, Long nominal, String name,
-                    BigDecimal currentValue, BigDecimal previousValue) {
+                    BigDecimal currentValue, BigDecimal previousValue, LocalDate dateOfValue) {
         this.stringId = stringId;
         this.numCode = numCode;
         this.charCode = charCode;
@@ -30,6 +32,7 @@ public class Currency {
         this.name = name;
         this.currentValue = currentValue;
         this.previousValue = previousValue;
+        this.dateOfValue = dateOfValue;
     }
 
     public Long getId() {
@@ -96,6 +99,14 @@ public class Currency {
         this.previousValue = previousValue;
     }
 
+    public LocalDate getDateOfValue() {
+        return dateOfValue;
+    }
+
+    public void setDateOfValue(LocalDate dateOfValue) {
+        this.dateOfValue = dateOfValue;
+    }
+
     @Override
     public String toString() {
         return "ID = " + stringId
@@ -104,6 +115,7 @@ public class Currency {
                 + " nominal " + nominal
                 + " name " + name
                 + " currentValue " + currentValue
-                + " previousValue " + previousValue;
+                + " previousValue " + previousValue
+                + " date of value " + dateOfValue;
     }
 }
